@@ -1,5 +1,9 @@
 # AccountManagementUi
 
+This is the frontend of this backend service: https://github.com/carlallanvela/account-management/. 
+
+Please see READ ME on how to deploy.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
 ## Development server
