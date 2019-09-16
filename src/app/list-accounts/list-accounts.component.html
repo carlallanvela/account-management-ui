@@ -1,0 +1,30 @@
+<h1> My Accounts </h1>
+<div class="alert-success" *ngIf='message'>{{message}}</div>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Account Number</th>
+        <th>Account Name</th>
+        <th>Account Type</th>
+        <th>Balance Date</th>
+        <th>Currency</th>
+        <th>Opening Available Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Java equivalent for (Todo todo: todos) -->
+      <tr *ngFor="let account of accounts">
+        <td>{{account.accountNumber}}</td>
+        <td>{{account.accountName}}</td>
+        <td>{{account.accountType}}</td>
+        <td>{{account.balanceDate | date}}</td>
+        <td>{{account.currency}}</td>
+        <td>{{account.openingAvailableBalance}}</td>
+        <td><button (click)="showTransactions(account.accountNumber, account.accountName, account.currency)"
+          class="btn btn-success">Transactions</button></td>
+        <td><button (click)="deleteAccount(account.accountNumber)" class="btn btn-warning">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
