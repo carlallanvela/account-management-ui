@@ -6,6 +6,23 @@ Please see READ ME on how to deploy.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
+# Live UI in AWS
+
+Deployed a working frontend to AWS S3. It connects to AWS Elastic Beanstalk to access APIS. UI can be accessed via: 
+http://account-management-ui.s3-website.us-east-2.amazonaws.com/
+
+# Live Endpoints in AWS
+
+Deployed a working version to AWS Elastic Beanstalk. APIs can be accessed via: 
+http://account-management-dev.us-west-2.elasticbeanstalk.com
+
+Sample requests:
+View Accounts:
+`http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts`
+
+View Transactions:
+`http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts/10002/transactions`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
