@@ -6,25 +6,35 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # account-management
 
-The backend for this application is created using Java and SpringBoot. 
+The backend for this application is created using <b>Java</b> and <b>SpringBoot</b>. 
 
-Please see READ ME on how to use and deploy: https://github.com/carlallanvela/account-management/
+Please see READ ME on how to use and deploy: 
+
+https://github.com/carlallanvela/account-management/
 
 # Live UI in AWS
 
-Deployed a working frontend to AWS S3. It connects to AWS Elastic Beanstalk to access APIS. UI can be accessed via: 
+Deployed a working frontend to <b>AWS S3</b>. It connects to <b>AWS Elastic Beanstalk</b> to access APIs. 
+
+UI can be accessed via: 
+
 http://account-management-ui.s3-website.us-east-2.amazonaws.com/
 
 # Live Endpoints in AWS
 
-Deployed a working version to AWS Elastic Beanstalk. APIs can be accessed via: 
+Deployed a working version to AWS Elastic Beanstalk. 
+
+APIs can be accessed via: 
+
 http://account-management-dev.us-west-2.elasticbeanstalk.com
 
 Sample requests:
-View Accounts:
+<b>View Accounts:</b>
+
 `http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts`
 
-View Transactions:
+<b>View Transactions:</b>
+
 `http://account-management-dev.us-west-2.elasticbeanstalk.com/jpa/accounts/10002/transactions`
 
 ## Development server
@@ -50,3 +60,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## TODOs
+1) Loading wheel.
+2) Login.
