@@ -1,0 +1,54 @@
+<h1>Add/Update Transaction</h1>
+<div class="container">
+  <div class="alert alert-warning" *ngIf="valueDate.invalid">
+    Enter valid Value Date.
+  </div>
+  <div class="alert alert-warning" *ngIf="debitAmount.invalid">
+      Enter Debit Amount.
+  </div>
+  <div class="alert alert-warning" *ngIf="creditAmount.invalid">
+      Enter Debit Amount.
+  </div>
+  <div class="alert alert-warning" *ngIf="debitCredit.invalid">
+      Debit/Credit Should have a value.
+  </div>
+  <form (ngSubmit)="!addTransactionForm.invalid && saveTransaction()" #addTransactionForm="ngForm">
+    <fieldset class="form-group">
+        <label>Value Date</label>
+        <input type="date" #valueDate="ngModel"
+        [ngModel]="transaction.valueDate | date:'yyyy-MM-dd' "
+        (ngModelChange)="transaction.valueDate = $event"
+        class="form-control" name="valueDate" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Debit Amount</label>
+        <input type="number" #debitAmount="ngModel"
+        [(ngModel)]="transaction.debitAmount" class="form-control"
+        name="debitAmount">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Credit Amount</label>
+        <input type="number" #creditAmount="ngModel"
+        [(ngModel)]="transaction.creditAmount" class="form-control"
+        name="creditAmount">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Debit/Credit</label><br>
+        <div class="btn-group">
+            <select #debitCredit="ngModel" [(ngModel)]="transaction.debitCredit" class="form-control"
+              name="debitCredit" required="required" ng-selected="transaction.debitCredit">
+                <option value="DEBIT">DEBIT</option>
+                <option value="CREDIT">CREDIT</option>
+            </select>
+          </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Transaction Narrative</label>
+        <input type="text" #transactionNarrative="ngModel" [(ngModel)]="transaction.transactionNarrative" class="form-control"
+        name="transactionNarrative">
+    </fieldset>
+    <button type="submit" class="btn btn-success" [disabled]=!addTransactionForm.form.valid>Save</button>
+    <div class="divider"></div>
+    <button (click)="goBack()" class="btn btn-secondary">Back</button>
+  </form>
+</div>

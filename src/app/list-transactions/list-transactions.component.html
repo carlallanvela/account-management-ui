@@ -1,4 +1,4 @@
-<h1> Account Transaction for Account Number: {{accountNumber}} </h1>
+<h1> Account Transactions for Account Number: {{accountNumber}} </h1>
 <div class="alert-success" *ngIf='message'>{{message}}</div>
 <div class="container">
   <table class="table">
@@ -24,10 +24,16 @@
         <td>{{transaction.creditAmount}}</td>
         <td>{{transaction.debitCredit}}</td>
         <td>{{transaction.transactionNarrative}}</td>
+        <td>
+            <button (click)="updateTransaction(accountNumber, transaction.id)" class="btn btn-warning">Update</button>
+          </td>
+          <td>
+            <button (click)="deleteTransaction(accountNumber, transaction.id)" class="btn btn-danger">Delete</button>
+          </td>
       </tr>
     </tbody>
   </table>
-  <div class="row">
-    <td><button (click)="goBack()" class="btn btn-success">Back</button></td>
-  </div>
+  <button (click)="addTransaction(accountNumber)" class="btn btn-success">Add Transaction</button>
+  <div class="divider"></div>
+  <button (click)="goBack()" class="btn btn-secondary">Back</button>
 </div>

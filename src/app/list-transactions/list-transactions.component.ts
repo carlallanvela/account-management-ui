@@ -13,19 +13,20 @@ export class ListTransactionsComponent implements OnInit {
   accountNumber = '';
   accountName = ''
   currency = '';
+  message = '';
   transactions = [];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private accountService: AccountDataService,
-    private _location: Location
+    private location: Location
   ) { }
 
   ngOnInit(): void {
-    this.accountNumber = this.route.snapshot.params['accountNumber'];
-    this.accountName = this.route.snapshot.params['accountName'];
-    this.currency = this.route.snapshot.params['currency'];
+    this.accountNumber = this.route.snapshot.params.accountNumber;
+    this.accountName = this.route.snapshot.params.accountName;
+    this.currency = this.route.snapshot.params.currency;
     this.refreshTransactionsForAccount();
   }
 
@@ -38,7 +39,25 @@ export class ListTransactionsComponent implements OnInit {
     );
   }
 
+  deleteTransaction(accountNumber, transactionId) {
+    this.accountService.deleteTransaction(accountNumber, transactionId).subscribe(
+      response => {
+        console.log(`delete transaction ${transactionId}`);
+        this.message = `Delete of Transaction ${transactionId} Successful!`;
+        this.refreshTransactionsForAccount();
+      }
+    );
+  }
+
+  addTransaction(accountNumber) {
+    this.router.navigate(['add-transaction', accountNumber, -1]);
+  }
+
+  updateTransaction(accountNumber, transactionId) {
+    this.router.navigate(['add-transaction', accountNumber, transactionId]);
+  }
+
   goBack() {
-    this._location.back();
+    this.location.back();
   }
 }

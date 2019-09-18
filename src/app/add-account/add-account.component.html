@@ -1,0 +1,61 @@
+<h1>Add/Update Account</h1>
+<div class="container">
+  <div class="alert alert-warning" *ngIf="accountName.invalid">
+    Enter valid Account Name.
+  </div>
+  <div class="alert alert-warning" *ngIf="accountType.invalid">
+      Enter Account Type.
+  </div>
+  <div class="alert alert-warning" *ngIf="balanceDate.invalid">
+    Enter valid date.
+  </div>
+  <div class="alert alert-warning" *ngIf="currency.invalid">
+      Enter Currency.
+  </div>
+  <form (ngSubmit)="!addAccountForm.invalid && saveAccount()" #addAccountForm="ngForm">
+    <fieldset class="form-group">
+      <label>Account Name</label>
+      <input type="text" #accountName="ngModel" [(ngModel)]="account.accountName" class="form-control"
+      name="accountName" required="required" minlength="5">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Account Type</label><br>
+        <div class="btn-group">
+            <select #accountType="ngModel" [(ngModel)]="account.accountType" class="form-control"
+              name="accountType" required="required" ng-selected="account.accountType">
+                <option value="SAVINGS">Savings</option>
+                <option value="CURRENT">Current</option>
+            </select>
+          </div>
+      </fieldset>
+    <fieldset class="form-group">
+      <label>Balance Date</label>
+      <input type="date" #balanceDate="ngModel"
+      [ngModel]="account.balanceDate | date:'yyyy-MM-dd' "
+      (ngModelChange)="account.balanceDate = $event"
+      class="form-control" name="balanceDate" required="required">
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Currency</label><br>
+        <div class="btn-group">
+            <select #currency="ngModel" [(ngModel)]="account.currency" class="form-control"
+              name="currency" required="required" ng-selected="account.currency">
+                <option value="AUD">AUD</option>
+                <option value="SGD">SGD</option>
+                <option value="PHP">PHP</option>
+            </select>
+          </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <label>Opening Available Balance</label>
+        <input type="number" #openingAvailableBalance="ngModel"
+        [(ngModel)]="account.openingAvailableBalance" class="form-control"
+        name="openingAvailableBalance">
+      </fieldset>
+    <button type="submit" class="btn btn-success" [disabled]=!addAccountForm.form.valid>Save</button>
+    <div class="divider"></div>
+    <button (click)="goBack()" class="btn btn-secondary">Back</button>
+  </form>
+</div>
+
+

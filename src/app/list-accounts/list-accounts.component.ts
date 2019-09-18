@@ -5,7 +5,7 @@ import { AccountDataService } from '../service/AccountDataService';
 export class Account {
   constructor(
     public accountNumber: number,
-    public accoutName: string,
+    public accountName: string,
     public accountType: string,
     public balanceDate: Date,
     public currency: string,
@@ -16,7 +16,7 @@ export class Account {
 export class Transaction {
   constructor(
     public accountNumber: number,
-    public accoutName: string,
+    public accountName: string,
     public valueDate: Date,
     public currency: string,
     public debitAmount: number,
@@ -58,14 +58,22 @@ export class ListAccountsComponent implements OnInit {
     this.router.navigate(['list-transactions', accountNumber, accountName, currency]);
   }
 
+  addAccount() {
+    this.router.navigate(['add-account', -1]);
+  }
+
+  updateAccount(accountNumber) {
+    this.router.navigate(['add-account', accountNumber]);
+  }
 
   deleteAccount(accountNumber) {
     this.accountService.deleteAccount(accountNumber).subscribe(
       response => {
-        console.log(`delete todo ${accountNumber}`);
+        console.log(`delete account ${accountNumber}`);
         this.message = `Delete of Account ${accountNumber} Successful!`;
         this.refreshAccounts();
       }
     )
   }
+
 }
