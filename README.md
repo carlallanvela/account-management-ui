@@ -12,7 +12,7 @@ Please see READ ME on how to use and deploy:
 
 https://github.com/carlallanvela/account-management/
 
-# Live UI in AWS
+# Live UI in AWS [Environment Temporarily Terminated]
 
 Deployed a working frontend to <b>AWS S3</b>. It connects to <b>AWS Elastic Beanstalk</b> to access APIs. 
 
@@ -20,7 +20,7 @@ UI can be accessed via:
 
 http://account-management-ui.s3-website.us-east-2.amazonaws.com/
 
-# Live Endpoints in AWS
+# Live Endpoints in AWS [Environment Temporarily Terminated]
 
 Deployed a working version to <b>AWS Elastic Beanstalk</b>. 
 
